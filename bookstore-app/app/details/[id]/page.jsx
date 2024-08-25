@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Spinner from '@/components/Spinner'
+import Loading from '@/components/Loading'
 import BackButton from '@/components/BackButton'
 
 function BookDetails({params}) {
@@ -34,7 +34,7 @@ function BookDetails({params}) {
             <BackButton />
             <h1 className='text-3xl my-4'>Show Book</h1>
             {loading ? (
-                <Spinner />
+                <Loading />
             ) : (
                 <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
                     <div className='my-4'>

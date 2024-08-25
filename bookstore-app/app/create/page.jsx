@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import BackButton from '@/components/BackButton'
-import Spinner from '@/components/Spinner'
+import Loading from '@/components/Loading'
 import axios from 'axios'
 
 function CreateBook() {
@@ -39,7 +39,7 @@ function CreateBook() {
         <div className='p-4'>
             <BackButton />
             <h1 className='text-3xl my-4'>Create Book</h1>
-            {loading ? <Spinner /> : ''}
+            {loading ? <Loading /> : ''}
             <div className='flex flex-col border-2 border-sky-400 rounded-x1 w-[600px] p-4 mx-auto'>
                 <div className="my-4">
                     <label className='text-xl'>Title</label>
