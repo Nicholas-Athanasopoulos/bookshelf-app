@@ -6,6 +6,7 @@ const router = express.Router();
 // CREATE BOOK
 router.post('/', async (request, response) => {
     try {
+        console.log('Creating book');
         if (
             !request.body.title ||
             !request.body.author ||
@@ -33,7 +34,7 @@ router.post('/', async (request, response) => {
 // READ ALL
 router.get('/', async (request, response) => {
     try {
-        console.log('Getting Books');
+        console.log('Getting all books');
         const books = await Book.find({});
 
         return response.status(200).json({
@@ -49,7 +50,7 @@ router.get('/', async (request, response) => {
 // READ ID
 router.get('/:id', async (request, response) => {
     try {
-
+        console.log('Getting book');
         const { id } = request.params;
 
         const book = await Book.findById(id);
@@ -64,6 +65,7 @@ router.get('/:id', async (request, response) => {
 // UPDATE
 router.put('/:id', async (request, response) => {
     try {
+        console.log('Updating book');
         if (
             !request.body.title ||
             !request.body.author ||
@@ -92,6 +94,7 @@ router.put('/:id', async (request, response) => {
 // DELETE
 router.delete('/:id', async (request, response) => {
     try {
+        console.log('Deleting book');
 
         const { id } = request.params;
 
