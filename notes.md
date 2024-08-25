@@ -6,3 +6,4 @@ App Thoughts:
 - Filtering & sorting based on read status.
 - Expand fields in include review, status, rating.
 - Authentication. Login, register, manage. 
+- Make api calls on server
