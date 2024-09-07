@@ -50,7 +50,7 @@ export default function Home() {
                     <div className='flex justify-between items-center'>
                         <h1 className='text-3xl my-8'>Bookshelf</h1>
                         <Link href="/create">
-                            {/* <MdOutlineAddBox className='text-sky-800 text-4xl' /> */}
+                            <MdOutlineAddBox className='text-sky-800 text-4xl' />
                         </Link>
                     </div>
                     <div className='flex justify-center items-center gap-x-4'>
