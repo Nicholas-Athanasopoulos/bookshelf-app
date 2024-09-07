@@ -6,21 +6,14 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineDelete } from 'react-icons/md';
 import BookModal from './BookModal';
-
-// Define the shape of the book object
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
-}
+import { IBook } from "@/interfaces/IBook";
 
 // Define the props for the BooksCard component
-interface BooksCardProps {
-    book: Book;
+interface Props {
+    book: IBook;
 }
 
-const BooksCard: React.FC<BooksCardProps> = ({ book }) => {
+const BooksCard: React.FC<Props> = ({ book }) => {
     const [showModal, setShowModal] = useState(false);
 
     return (

@@ -1,20 +1,14 @@
+import { IBook } from "@/interfaces/IBook";
 import Link from "next/link";
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
+interface Props {
+    books?: IBook[];
 }
 
-interface BooksTableProps {
-    books?: Book[];
-}
-
-const BooksTable: React.FC<BooksTableProps> = (props) => {
+const BooksTable: React.FC<Props> = (props) => {
     const { books } = props;
 
     return (

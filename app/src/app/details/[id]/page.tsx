@@ -4,26 +4,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loading from '@/components/Loading';
 import BackButton from '@/components/BackButton';
-
-// Define the shape of a book object
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
-    createdAt: string; // Assuming createdAt and updatedAt are ISO date strings
-    updatedAt: string;
-}
+import { IBook } from '@/interfaces/IBook';
 
 // Define the shape of the props
-interface BookDetailsProps {
+interface Props {
     params: {
         id: string;
     };
 }
 
-export default function BookDetails({ params }: BookDetailsProps) {
-    const [book, setBook] = useState<Book | null>(null); // State can be null initially
+export default function BookDetails({ params }: Props) {
+    const [book, setBook] = useState<IBook | null>(null); // State can be null initially
     const [loading, setLoading] = useState<boolean>(false);
     const { id } = params;
 
@@ -52,30 +43,42 @@ export default function BookDetails({ params }: BookDetailsProps) {
             ) : (
                 book && (
                     <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Id</span>
-                            <span>{book._id}</span>
-                        </div>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Title</span>
-                            <span>{book.title}</span>
-                        </div>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Author</span>
-                            <span>{book.author}</span>
-                        </div>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Publish Year</span>
-                            <span>{book.publishYear}</span>
-                        </div>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Create Time</span>
-                            <span>{new Date(book.createdAt).toString()}</span>
-                        </div>
-                        <div className='my-4'>
-                            <span className='text-xl mr-4'>Last Update Time</span>
-                            <span>{new Date(book.updatedAt).toString()}</span>
-                        </div>
+                        {book._id ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Id</span>
+                                <span>{book._id}</span>
+                            </div>
+                        ) : null}
+                        {book.title ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Title</span>
+                                <span>{book.title}</span>
+                            </div>
+                        ) : null}
+                        {book.author ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Author</span>
+                                <span>{book.author}</span>
+                            </div>
+                        ) : null}
+                        {book.publishYear ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Publish Year</span>
+                                <span>{book.publishYear}</span>
+                            </div>
+                        ) : null}
+                        {book.createdAt ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Create Time</span>
+                                <span>{new Date(book.createdAt).toString()}</span>
+                            </div>
+                        ) : null}
+                        {book.updatedAt ? (
+                            <div className='my-4'>
+                                <span className='text-xl mr-4'>Last Update Time</span>
+                                <span>{new Date(book.updatedAt).toString()}</span>
+                            </div>
+                        ) : null}
                     </div>
                 )
             )}

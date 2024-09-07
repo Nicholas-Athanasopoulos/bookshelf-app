@@ -1,19 +1,12 @@
+import { IBook } from "@/interfaces/IBook";
 import BookCard from "./BookCard";
 
-// Define the shape of the book object
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
-}
-
 // Define the props for the BooksCards component
-interface BooksCardsProps {
-    books: Book[];
+interface Props {
+    books: IBook[];
 }
 
-const BooksCards: React.FC<BooksCardsProps> = (props) => {
+const BooksCards: React.FC<Props> = (props) => {
     const { books } = props;
 
     return (

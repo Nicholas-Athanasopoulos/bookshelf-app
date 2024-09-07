@@ -1,10 +1,10 @@
 import React from "react";
 
-interface LoadingProps {
+interface Props {
     // Define any props if needed
 }
 
-const Loading: React.FC<LoadingProps> = (props) => {
+const Loading: React.FC<Props> = (props) => {
     return (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center animate-pulse">
             <div className="text-center">

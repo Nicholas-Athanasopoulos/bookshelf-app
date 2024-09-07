@@ -7,13 +7,13 @@ import Loading from '@/components/Loading';
 import axios from 'axios';
 
 // Define the shape of the props
-interface DeleteBookProps {
+interface Props {
     params: {
         id: string;
     };
 }
 
-export default function DeleteBook({ params }: DeleteBookProps) {
+export default function DeleteBook({ params }: Props) {
     const { id } = params;
     const [loading, setLoading] = useState<boolean>(false);
 

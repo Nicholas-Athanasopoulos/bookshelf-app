@@ -8,18 +8,11 @@ import { MdOutlineAddBox } from 'react-icons/md';
 import Loading from '@/components/Loading';
 import BooksTable from '@/components/BooksTable';
 import BooksCards from '@/components/BooksCards';
-
-// Define the shape of a book object
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
-}
+import { IBook } from '@/interfaces/IBook';
 
 export default function Home() {
     // Define state with initial values and types
-    const [books, setBooks] = useState<Book[]>([]);
+    const [books, setBooks] = useState<IBook[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [showType, setShowType] = useState<'table' | 'card'>('table');
 
@@ -65,7 +58,8 @@ export default function Home() {
                             Card
                         </button>
                     </div>
-                    {showType === 'table' ? <BooksTable books={books} /> : <BooksCards books={books} />}
+                    {showType === 'table' && <BooksTable books={books} />} 
+                    {showType === 'card' && <BooksCards books={books} />} 
                 </div>
             )}
         </>

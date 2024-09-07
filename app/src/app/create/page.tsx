@@ -5,13 +5,7 @@ import React, { useState } from 'react';
 import BackButton from '@/components/BackButton';
 import Loading from '@/components/Loading';
 import axios from 'axios';
-
-// Define types for the data object
-interface BookData {
-    title: string;
-    author: string;
-    publishYear: string;
-}
+import { IBook } from '@/interfaces/IBook';
 
 export default function CreateBook() {
     // Use generic type annotations for state
@@ -23,7 +17,7 @@ export default function CreateBook() {
     const router = useRouter();
 
     const handleSaveBook = () => {
-        const data: BookData = {
+        const data: IBook = {
             title,
             author,
             publishYear

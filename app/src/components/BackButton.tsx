@@ -2,11 +2,11 @@ import Link from "next/link";
 import { BsArrowLeft } from 'react-icons/bs';
 
 // Define the props interface for the BackButton component
-interface BackButtonProps {
+interface Props {
     destination?: string;  // Make destination optional with a default value
 }
 
-const BackButton: React.FC<BackButtonProps> = ({ destination = '/' }) => {
+const BackButton: React.FC<Props> = ({ destination = '/' }) => {
     return (
         <div className="flex">
             <Link 

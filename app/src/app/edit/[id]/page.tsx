@@ -5,14 +5,15 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import BackButton from '@/components/BackButton';
 import Loading from '@/components/Loading';
 import axios from 'axios';
+import { IBook } from '@/interfaces/IBook';
 
-interface EditBookProps {
+interface Props {
     params: {
         id: string;
     };
 }
 
-export default function EditBook({ params }: EditBookProps) {
+export default function EditBook({ params }: Props) {
     const { id } = params;
 
     const [title, setTitle] = useState<string>('');
@@ -40,7 +41,7 @@ export default function EditBook({ params }: EditBookProps) {
     }, [id]);
 
     const handleEditBook = () => {
-        const data = {
+        const data: IBook = {
             title,
             author,
             publishYear
@@ -59,10 +60,6 @@ export default function EditBook({ params }: EditBookProps) {
             });
     };
 
-    const handleChange = (setter: React.Dispatch<React.SetStateAction<string>>) => (e: ChangeEvent<HTMLInputElement>) => {
-        setter(e.target.value);
-    };
-
     return (
         <div className='p-4'>
             <BackButton />
@@ -74,7 +71,7 @@ export default function EditBook({ params }: EditBookProps) {
                     <input
                         type='text'
                         value={title}
-                        onChange={handleChange(setTitle)}
+                        onChange={(e) => setTitle(e.target.value)}
                         className='border-2 border-gray-500 px-4 py-2 w-full'
                     />
                 </div>
@@ -83,7 +80,7 @@ export default function EditBook({ params }: EditBookProps) {
                     <input
                         type='text'
                         value={author}
-                        onChange={handleChange(setAuthor)}
+                        onChange={(e) => setAuthor(e.target.value)}
                         className='border-2 border-gray-500 px-4 py-2 w-full'
                     />
                 </div>
@@ -92,7 +89,7 @@ export default function EditBook({ params }: EditBookProps) {
                     <input
                         type='text'
                         value={publishYear}
-                        onChange={handleChange(setPublishYear)}
+                        onChange={(e) => setPublishYear(e.target.value)}
                         className='border-2 border-gray-500 px-4 py-2 w-full'
                     />
                 </div>

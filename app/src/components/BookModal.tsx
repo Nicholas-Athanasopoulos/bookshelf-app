@@ -1,20 +1,14 @@
 import { AiOutlineClose } from 'react-icons/ai';
 import { PiBookOpenTextLight } from 'react-icons/pi';
 import { BiUserCircle } from 'react-icons/bi';
+import { IBook } from '@/interfaces/IBook';
 
-interface Book {
-    _id: string;
-    title: string;
-    author: string;
-    publishYear: number;
-}
-
-interface BackButtonProps {
-    book: Book;
+interface Props {
+    book: IBook;
     onClose: () => void;
 }
 
-const BackButton: React.FC<BackButtonProps> = ({ book, onClose }) => {
+const BookModal: React.FC<Props> = ({ book, onClose }) => {
     return (
         <div
             className="fixed bg-purple-500 bg-opacity-60 top-0 left-0 right-0 bottom-0 z-50 flex justify-center items-center"
@@ -54,4 +48,4 @@ const BackButton: React.FC<BackButtonProps> = ({ book, onClose }) => {
     );
 };
 
-export default BackButton;
+export default BookModal;
