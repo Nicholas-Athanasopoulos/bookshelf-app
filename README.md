@@ -1,1 +1,1 @@
-A bookstore CRUD application built using Next Js, Express Js, Node Js and MongoDB. 
+A bookshelf CRUD application built using TypeScript, Next Js, Express Js, Node Js and MongoDB. 
